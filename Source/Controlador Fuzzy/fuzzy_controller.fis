@@ -1,0 +1,36 @@
+[System]
+Name='fuzzy_controller'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=4
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='erro'
+Range=[-1 1]
+NumMFs=4
+MF1='neg-pequeno':'trimf',[-0.712 -0.353 0.0632653061224486]
+MF2='neg-grande':'trapmf',[-1.18 -1.1 -0.872 -0.581632653061225]
+MF3='pos-grande':'trapmf',[0.56938775510204 0.827 1.08 1.72]
+MF4='pos-pequeno':'trimf',[-0.0837 0.296 0.695918367346938]
+
+[Output1]
+Name='acao-de-controle'
+Range=[-1 1]
+NumMFs=4
+MF1='neg-peq':'trimf',[-0.647 -0.312244897959184 -0.00612]
+MF2='neg-grande':'trimf',[-1.25 -1.01 -0.393877551020408]
+MF3='pos-grande':'trimf',[0.312163265306123 1.00016326530612 1.22816326530612]
+MF4='pos-peq':'trimf',[-0.00612 0.275510204081632 0.549]
+
+[Rules]
+1, 1 (1) : 1
+2, 2 (1) : 1
+3, 3 (1) : 1
+4, 4 (1) : 1
